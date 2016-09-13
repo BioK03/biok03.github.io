@@ -192,6 +192,7 @@ arrondissements.forEach(function(value){
 });
 
 function parseVelovData(velovData){
+    console.log(velovData);
     
     var nbVelos = 0;
     var nbArcs = 0;
