@@ -240,73 +240,45 @@ function parseVelovData(velovData){
             bikes += "<img src='images/velov-free.png'/>";
         }
 
-        if(value.status != "OPEN") {
-            markers.push(L.marker([value.position.lat, value.position.lng], {
-                icon: L.icon({
-                    iconUrl: 'images/logo.gif',
-                    iconSize: [15, 15],
-                    iconAnchor: [8, 8],
-                    popupAnchor: [0, -8]
-                })
-            }).bindPopup(
-                L.popup({
-                    maxWidth: 1920
-                })
-                .setContent(
-                    "<div>"
-                        +value.name+"<br/>"
-                        +"<span class='spanBike'>"
-                        +bikes
-                        +"</span>"
-                    +"</div>"
-                )
-            ).addTo(map));
+        var imagePointer = "";
+        if(value.status != "OPEN")
+        {
+            imagePointer = "images/gris.gif";
         }
         else if(value.available_bikes == 0)
         {
-            markers.push(L.marker([value.position.lat, value.position.lng], {
-                icon: L.icon({
-                    iconUrl: 'images/nobike.gif',
-                    iconSize: [15, 15],
-                    iconAnchor: [8, 8],
-                    popupAnchor: [0, -8]
-                })
-            }).bindPopup(
-                L.popup({
-                    maxWidth: 1920
-                })
-                .setContent(
-                    "<div>"
-                        +value.name+"<br/>"
-                        +"<span class='spanBike'>"
-                        +bikes
-                        +"</span>"
-                    +"</div>"
-                )
-            ).addTo(map));
+            imagePointer = "images/orange.gif";
         }
-        else {
-            markers.push(L.marker([value.position.lat, value.position.lng], {
-                icon: L.icon({
-                    iconUrl: 'images/open.gif',
-                    iconSize: [15, 15],
-                    iconAnchor: [8, 8],
-                    popupAnchor: [0, -8]
-                })
-            }).bindPopup(
-                L.popup({
-                    maxWidth: 1920
-                })
-                .setContent(
-                    "<div>"
-                        +value.name+"<br/>"
-                        +"<span class='spanBike'>"
-                        +bikes
-                        +"</span>"
-                    +"</div>"
-                )
-            ).addTo(map));
+        else if(value.available_bike_stands == 0)
+        {
+            imagePointer = "images/jaune.gif";
         }
+        else
+        {
+            imagePointer = "images/vert.gif";
+        }
+
+        markers.push(L.marker([value.position.lat, value.position.lng], {
+            icon: L.icon({
+                iconUrl: imagePointer,
+                iconSize: [15, 15],
+                iconAnchor: [8, 8],
+                popupAnchor: [0, -8]
+            })
+        }).bindPopup(
+            L.popup({
+                maxWidth: 1920
+            })
+            .setContent(
+                "<div>"
+                    +value.name+"<br/>"
+                    +"<span class='spanBike'>"
+                    +bikes
+                    +"</span>"
+                +"</div>"
+            )
+        ).addTo(map));
+
         
     });
 
