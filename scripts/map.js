@@ -272,6 +272,7 @@ function parseVelovData(velovData){
             })
             .setContent(
                 "<div>"
+                    +"<img class='stationBikeImg' src='images/stations/"+value.number+".jpg'/>"
                     +value.name+"<br/>"
                     +"<span class='spanBike'>"
                     +bikes
