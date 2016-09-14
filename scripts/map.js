@@ -244,19 +244,19 @@ function parseVelovData(velovData){
         var imagePointer = "";
         if(value.status != "OPEN")
         {
-            imagePointer = "images/gris.gif";
+            imagePointer = "images/gris.png";
         }
         else if(value.available_bikes == 0)
         {
-            imagePointer = "images/orange.gif";
+            imagePointer = "images/orange.png";
         }
         else if(value.available_bike_stands == 0)
         {
-            imagePointer = "images/jaune.gif";
+            imagePointer = "images/jaune.png";
         }
         else
         {
-            imagePointer = "images/vert.gif";
+            imagePointer = "images/vert.png";
         }
 
         markers.push(L.marker([value.position.lat, value.position.lng], {
@@ -275,7 +275,9 @@ function parseVelovData(velovData){
                     +"<img class='stationBikeImg' src='images/stations/"+value.number+".jpg'/>"
                     +value.name+"<br/>"
                     +"<span class='spanBike'>"
-                    +bikes
+                        +bikes
+                        +"<br/>"
+                        +"("+value.available_bikes+"/"+(value.available_bike_stands+value.available_bikes)+")"
                     +"</span>"
                 +"</div>"
             )
@@ -285,15 +287,21 @@ function parseVelovData(velovData){
     });
 
     $("#nbStations").html(velovData.length+" stations");
-    $("#nbVelos").html(nbVelos+" vélos disponibles");
-    $("#nbEmplacementsDisponibles").html(nbArcs+" emplacements libres");
-    $("#nbStationsPleines").html(nbStationsPleines+" stations pleines");
-    $("#nbStationsVides").html(nbStationsVides+" stations vides");
-    $("#nbEmplacementsEnPanne").html(nbEmplacementsEnPanne+" emplacements en pannes");
+    $("#nbVelos").html(nbVelos+" vélos disponibles<br/><i>("+(Math.floor((nbVelos / nbArcsTotal)*1000))/10+" % des emplacements)</i>");
+    $("#nbEmplacementsDisponibles").html(nbArcs+" emplacements libres<br/><i>("+(Math.floor((nbArcs / nbArcsTotal)*1000))/10+" % des emplacements)</i>");
+    $("#nbStationsPleines").html(nbStationsPleines+" stations pleines<br/><i>("+(Math.floor((nbStationsPleines / velovData.length)*1000))/10+" % des stations)</i>");
+    $("#nbStationsVides").html(nbStationsVides+" stations vides<br/><i>("+(Math.floor((nbStationsVides / velovData.length)*1000))/10+" % des stations)</i>");
+    $("#nbEmplacementsEnPanne").html(nbEmplacementsEnPanne+" emplacements en pannes<br/><i>("+(Math.floor((nbEmplacementsEnPanne / nbArcsTotal)*1000))/10+" % des emplacements)</i>");
     $("#nbEmplacementsTotal").html(nbArcsTotal+" emplacements");
     $("#nbEmplacementsParStation").html((Math.floor((nbArcsTotal / velovData.length)*10))/10+" emplacements par station en moyenne");
-    $("#nbStationsFermees").html(nbStationsFermees+" stations fermées");
-    $("#nbStationsBonus").html(nbStationsBonus+" stations bonus");
+    $("#nbStationsFermees").html(nbStationsFermees+" stations fermées<br/><i>("+(Math.floor((nbStationsFermees / velovData.length)*1000))/10+" % des stations)</i>");
+    $("#nbStationsBonus").html(nbStationsBonus+" stations bonus<br/><i>("+(Math.floor((nbStationsBonus / velovData.length)*1000))/10+" % des stations)</i>");
+
+    $(".leaflet-bar").append('<a id="leafletCenter" href="#" title="Center"><i class="material-icons">fullscreen</i></a>');
+
+    $("#leafletCenter").click(function(){
+        map.setView(L.latLng(45.759723, 4.842223), 13);
+    });
 }
 
 function getLocation() {

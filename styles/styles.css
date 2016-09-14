@@ -40,11 +40,17 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 .spanBike {
     white-space: nowrap;
     display: block;
+    text-align: center;
 }
 
 .spanBike img {
     width: 2em;
     display: initial;
+}
+
+.card i {
+    font-style: normal;
+    font-size: 70%;
 }
 
 #analyse, #infos {
@@ -94,3 +100,12 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 .title:not(:first-child) {
     margin-top: 2em;
 }
+
+/* LEAFLET */
+/*
+.leaflet-bar a:last-child {
+    border-radius: 0;
+    border-bottom: 1px solid #ccc;
+}*/
+
+
