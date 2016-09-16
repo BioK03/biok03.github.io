@@ -107,5 +107,13 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
     border-radius: 0;
     border-bottom: 1px solid #ccc;
 }*/
+.leaflet-marker-icon {
+    border-radius: 2px !important;
+}
 
-
+.stationBikeImg {
+    height: 3em;
+    width: 3em;
+    border-radius: 1.5em;
+    margin-right: 1em;
+}
