@@ -190,7 +190,7 @@ arrondissements.forEach(function(value){
 });
 
 function parseVelovData(velovData){
-    console.log(velovData);
+    //console.log(velovData);
     
     var nbVelos = 0;
     var nbArcs = 0;
@@ -300,6 +300,8 @@ function parseVelovData(velovData){
     $("#leafletCenter").click(function(){
         map.setView(L.latLng(45.759723, 4.842223), 13);
     });
+	
+	getLocation();
 }
 
 function getLocation() {
@@ -312,12 +314,43 @@ function getLocation() {
                     iconAnchor: [8, 8]
                 })
             }).addTo(map);
+			
+			var markerSelected = null;
+			var distance = 100000;
+			
+			
+			markers.forEach(function(value){
+				var tempDistance = distanceBetweenGPS(position.coords.latitude, position.coords.longitude, value._latlng.lat, value._latlng.lng);
+				if(tempDistance < distance) {
+					distance = tempDistance;
+					markerSelected = value;
+				}
+			});
+			
+			markerSelected.openPopup();
         });
     }
 }
 
-getLocation();
 
+
+
+function convertToRad(input){
+	return (Math.PI * input)/180;
+}
+ 
+function distanceBetweenGPS(lat_a_degre, lon_a_degre, lat_b_degre, lon_b_degre){
+     
+	var R = 6378000;
+ 
+    var lat_a = convertToRad(lat_a_degre);
+    var lon_a = convertToRad(lon_a_degre);
+    var lat_b = convertToRad(lat_b_degre);
+    var lon_b = convertToRad(lon_b_degre);
+     
+    var d = R * (Math.PI/2 - Math.asin( Math.sin(lat_b) * Math.sin(lat_a) + Math.cos(lon_b - lon_a) * Math.cos(lat_b) * Math.cos(lat_a)))
+    return d;
+}
 
 
 
