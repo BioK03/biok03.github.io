@@ -28,6 +28,7 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
     box-shadow: 0 1px 0 0 #E11F26;
 }
 
+
 .navbar-brand img {
     height: 1.2em;
     display: block;
@@ -138,11 +139,43 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 	margin-left: 6.66%;
 }
 
+.popupContentLeaflet {
+	display: block;
+	font-size: 1.5em;
+}
+
+.leaflet-popup-content {
+	min-width: 500px !important;
+}
+
+.popupContentLeaflet img {
+	display: inline-block;
+	height: 1em;
+}
+
+.popupContentLeaflet h3 {
+	text-align: center;
+	border-bottom: 1px solid #E11F26;
+	font-family: 'Poiret One', cursive;
+}
+
+.tooltip .tooltip-inner {
+	text-align: left !important;
+}
+.tooltip .tooltip-inner img {
+	height: 1em;
+	
+}
+
 @media screen and (max-width: 1250px){
 	.leaflet-marker-icon {
 		margin-left: -15px !important;
 		margin-top: -15px !important;
 		width: 30px !important;
 		height: 30px !important;
+	}
+	
+	.navbar {
+		font-size: 2em;
 	}
 }

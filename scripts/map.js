@@ -1,6 +1,25 @@
 var map = L.map('map').setView([45.759723, 4.842223], 13);
 var markers = [];
+var arrondValues = {
+	a1: [],
+	a2: [],
+	a3: [],
+	a4: [],
+	a5: [],
+	a6: [],
+	a7: [],
+	a8: [],
+	a9: [],
+	a10: [],
+	a11: [],
+	a12: []
+};
 
+
+var greatUp = '<i class="text-success material-icons" title="Supérieur à la moyenne">arrow_drop_up</i>';
+var badUp = '<i class="text-danger material-icons" title="Supérieur à la moyenne">arrow_drop_up</i>';
+var greatDown = '<i class="text-success material-icons" title="Inférieur à la moyenne">arrow_drop_down</i>';
+var badDown = '<i class="text-danger material-icons" title="Inférieur à la moyenne">arrow_drop_down</i>';
 
 L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
 	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -24,7 +43,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "3 ème",
+        name: "Lyon - 3 ème",
         geoPoints:[
             [45.76356, 4.83987],
             [45.76374, 4.86987],
@@ -36,7 +55,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "6 ème",
+        name: "Lyon - 6 ème",
         geoPoints:[
             [45.78251, 4.846],
             [45.78612, 4.85189],
@@ -49,7 +68,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "8 ème",
+        name: "Lyon - 8 ème",
         geoPoints:[
             [45.73926, 4.89208],
             [45.7203, 4.88739],
@@ -63,7 +82,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "7 ème",
+        name: "Lyon - 7 ème",
         geoPoints:[
             [45.74964, 4.85955],
             [45.73858, 4.84961],
@@ -77,7 +96,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "2 ème",
+        name: "Lyon - 2 ème",
         geoPoints:[
             [45.72779, 4.81811],
             [45.73457, 4.81353],
@@ -90,7 +109,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "5 ème",
+        name: "Lyon - 5 ème",
         geoPoints:[
             [45.75104, 4.82177],
             [45.7519, 4.80211],
@@ -105,7 +124,7 @@ var arrondissements = [
         ]
     },
 	{
-        name: "1 er",
+        name: "Lyon - 1 er",
         geoPoints:[
             [45.76356, 4.83987],
             [45.76476, 4.83053],
@@ -117,7 +136,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "9 ème",
+        name: "Lyon - 9 ème",
         geoPoints:[
             [45.76052, 4.80486],
             [45.76418, 4.78683],
@@ -151,7 +170,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "4 ème",
+        name: "Lyon - 4 ème",
         geoPoints:[
             [45.77308, 4.83974],
             [45.77445, 4.83311],
@@ -163,7 +182,7 @@ var arrondissements = [
         ]
     },
     {
-        name: "Valux-en-Velin Sud",
+        name: "Vaulx-en-Velin Sud",
         geoPoints:[
             [45.768763, 4.91729],
             [45.77159, 4.93546],
@@ -174,37 +193,24 @@ var arrondissements = [
     },
 ];
 
+var nbStations = 0;
+var nbVelos = 0;
+var nbEmplacements = 0;
+var nbEmplacementsTotal = 0;
+var nbStationsVides = 0;
+var nbStationsPleines = 0;
+var nbEmplacementsEnPanne = 0;
+var nbStationsFermees = 0;
+var nbStationsBonus = 0;
 
-arrondissements.forEach(function(value){
-    var latLngs = [];
-    value.geoPoints.forEach(function(point){
-        latLngs.push(L.latLng(point[0], point[1]));
-    });
-    L.polygon(latLngs, {
-        color: '#E11F26',
-        weight: 4,
-        fillColor: '#E11F26',
-        fillOpacity: 0.1,
-        dashArray: "5, 5"
-    }).bindPopup(value.name).addTo(map);
-});
 
 function parseVelovData(velovData){
-    //console.log(velovData);
-    
-    var nbVelos = 0;
-    var nbArcs = 0;
-    var nbArcsTotal = 0;
-    var nbStationsVides = 0;
-    var nbStationsPleines = 0;
-    var nbEmplacementsEnPanne = 0;
-    var nbStationsFermees = 0;
-    var nbStationsBonus = 0;
 
     velovData.forEach(function(value){
+		nbStations = velovData.length;
         nbVelos += value.available_bikes;
-        nbArcs += value.available_bike_stands;
-        nbArcsTotal += value.bike_stands;
+        nbEmplacements += value.available_bike_stands;
+        nbEmplacementsTotal += value.bike_stands;
 
         if(value.available_bikes == 0)
         {
@@ -256,14 +262,15 @@ function parseVelovData(velovData){
         {
             imagePointer = "images/vert.png";
         }
-
-        markers.push(L.marker([value.position.lat, value.position.lng], {
+		
+		var currentMarker = L.marker([value.position.lat, value.position.lng], {
             icon: L.icon({
                 iconUrl: imagePointer,
                 iconSize: [15, 15],
                 iconAnchor: [8, 8],
                 popupAnchor: [0, -8]
-            })
+            }),
+			keyword: String(value.name).split(" - ")[1]
         }).bindPopup(
             L.popup({
                 maxWidth: 1920
@@ -279,29 +286,74 @@ function parseVelovData(velovData){
                     +"</span>"
                 +"</div>"
             )
-        ).addTo(map));
+        ).addTo(map);		
+		
+		$("#stations").append("<option value='"+String(value.name).split(" - ")[1]+"'/>");
 
-        
+
+        markers.push(currentMarker);
+		arrondValues["a"+((value.number>9999)?String(value.number).substring(0, 2):String(value.number).substring(0, 1))].push(value);        
     });
+	
 
-    $("#nbStations").html(velovData.length+" stations");
-    $("#nbVelos").html(nbVelos+" vélos disponibles<br/><i>("+(Math.floor((nbVelos / nbArcsTotal)*1000))/10+" % des emplacements)</i>");
-    $("#nbEmplacementsDisponibles").html(nbArcs+" emplacements libres<br/><i>("+(Math.floor((nbArcs / nbArcsTotal)*1000))/10+" % des emplacements)</i>");
+    $("#nbStations").html(nbStations+" stations");
+    $("#nbVelos").html(nbVelos+" vélos disponibles<br/><i>("+(Math.floor((nbVelos / nbEmplacementsTotal)*1000))/10+" % des emplacements)</i>");
+    $("#nbEmplacementsDisponibles").html(nbEmplacements+" emplacements libres<br/><i>("+(Math.floor((nbEmplacements / nbEmplacementsTotal)*1000))/10+" % des emplacements)</i>");
     $("#nbStationsPleines").html(nbStationsPleines+" stations pleines<br/><i>("+(Math.floor((nbStationsPleines / velovData.length)*1000))/10+" % des stations)</i>");
     $("#nbStationsVides").html(nbStationsVides+" stations vides<br/><i>("+(Math.floor((nbStationsVides / velovData.length)*1000))/10+" % des stations)</i>");
-    $("#nbEmplacementsEnPanne").html(nbEmplacementsEnPanne+" emplacements en pannes<br/><i>("+(Math.floor((nbEmplacementsEnPanne / nbArcsTotal)*1000))/10+" % des emplacements)</i>");
-    $("#nbEmplacementsTotal").html(nbArcsTotal+" emplacements");
-    $("#nbEmplacementsParStation").html((Math.floor((nbArcsTotal / velovData.length)*10))/10+" emplacements par station en moyenne");
+    $("#nbEmplacementsEnPanne").html(nbEmplacementsEnPanne+" emplacements en pannes<br/><i>("+(Math.floor((nbEmplacementsEnPanne / nbEmplacementsTotal)*1000))/10+" % des emplacements)</i>");
+    $("#nbEmplacementsTotal").html(nbEmplacementsTotal+" emplacements");
+    $("#nbEmplacementsParStation").html((Math.floor((nbEmplacementsTotal / velovData.length)*10))/10+" emplacements par station en moyenne");
     $("#nbStationsFermees").html(nbStationsFermees+" stations fermées<br/><i>("+(Math.floor((nbStationsFermees / velovData.length)*1000))/10+" % des stations)</i>");
     $("#nbStationsBonus").html(nbStationsBonus+" stations bonus<br/><i>("+(Math.floor((nbStationsBonus / velovData.length)*1000))/10+" % des stations)</i>");
 
     $(".leaflet-bar").append('<a id="leafletCenter" href="#" title="Center"><i class="material-icons">fullscreen</i></a>');
+	$(".leaflet-bar").append('<a id="leafletLegend" href="#" data-toggle="tooltip" data-placement="right" data-original-title="'
+		+'<h3>Légende</h3>'
+		+'<span><img src=\'images/tirets.png\'/> Arrondissement</span><br/>'
+		+'<span><img src=\'images/vert.png\'/> Station ouverte</span><br/>'
+		+'<span><img src=\'images/rouge.png\'/> Station fermée</span><br/>'
+		+'<span><img src=\'images/jaune.png\'/> Station pleine</span><br/>'
+		+'<span><img src=\'images/orange.png\'/> Station vide</span>'
+		+'"><i class="fa fa-info" aria-hidden="true"></i></a>');
+	
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip({animation: true, html: true, delay: {show: 300, hide: 300}});
+	});
 
     $("#leafletCenter").click(function(){
         map.setView(L.latLng(45.759723, 4.842223), 13);
     });
 	
+	arrondissements.forEach(function(value){
+		var latLngs = [];
+		value.geoPoints.forEach(function(point){
+			latLngs.push(L.latLng(point[0], point[1]));
+		});
+		L.polygon(latLngs, {
+			color: '#E11F26',
+			weight: 4,
+			fillColor: '#E11F26',
+			fillOpacity: 0.1,
+			dashArray: "5, 5"
+		}).bindPopup(renderArrondissement(value.name)).addTo(map);
+	});
 	getLocation();
+}
+
+function validateLocationSearch(){
+	$val = $("#location").val();
+	markers.forEach(function(value){
+		if(value.options.keyword == $val){
+			console.log(value);
+			map.panTo(value._latlng);
+			value.openPopup();
+			$("#location").val("");
+			return false;
+		}
+	});
+	
+	return false;
 }
 
 function getLocation() {
@@ -332,7 +384,102 @@ function getLocation() {
     }
 }
 
-
+function renderArrondissement(name){	
+	var arrCorrespond = {
+		"Villeurbanne": 10,
+        "Lyon - 3 ème": 3,
+		"Lyon - 6 ème": 6,
+		"Lyon - 8 ème": 8,
+		"Lyon - 7 ème": 7,
+		"Lyon - 2 ème": 2,
+		"Lyon - 5 ème": 5,
+        "Lyon - 1 er": 1,
+		"Lyon - 9 ème": 9,
+		"Caluire-et-Cuire": 11,
+		"Lyon - 4 ème": 4,
+		"Vaulx-en-Velin Sud": 12
+	};
+	
+	
+	var arrnbStations = arrondValues["a"+arrCorrespond[name]].length;
+	var arrnbStationsPleines = 0;
+	var arrnbStationsVides = 0;
+	var arrnbVelos = 0;
+	var arrnbEmplacements = 0;
+	var arrnbEmplacementsVides = 0;
+	var arrnbStationsFermees = 0;
+	var arrnbStationsBonus = 0;
+	var arrnbEmplacementsEnPanne = 0;
+		
+	var result = "";
+	arrondValues["a"+arrCorrespond[name]].forEach(function(value){
+		if(value.available_bike_stands == 0){
+			arrnbStationsPleines++;
+		}
+		if(value.available_bikes == 0){
+			arrnbStationsVides++;
+		}
+		arrnbVelos += value.available_bikes;
+		arrnbEmplacementsVides += value.available_bike_stands;
+		arrnbEmplacements += value.bike_stands;
+		if(value.status != "OPEN"){
+			arrnbStationsFermees ++;
+		}
+		if(value.bonus){
+			arrnbStationsBonus++;
+		}
+		arrnbEmplacementsEnPanne += value.bike_stands -(value.available_bike_stands+value.available_bikes);
+	});
+	
+	var arrnbEmplacementsParStation = (Math.floor((arrnbEmplacements / arrnbStations)*10))/10;
+	var arrnbVelosParStation = (Math.floor((arrnbVelos / arrnbStations)*10))/10;
+	
+	result += "<img src='images/analysePopup/velovstation2.png'/> "
+		+arrnbStations+" stations"
+		+((arrnbStations > nbStations / 12)?greatUp:badDown)+"<br/>";
+		
+	result += "<img src='images/analysePopup/stationPleine.png'/> "
+		+arrnbStationsPleines+" station(s) pleine(s) ("+Math.floor((arrnbStationsPleines / arrnbStations)*100)+"% des stations"
+		+(((arrnbStationsPleines / arrnbStations) > (nbStationsPleines / nbStations))?badUp:greatDown)+")<br/>";
+		
+	result += "<img src='images/analysePopup/stationVide.png'/> "
+		+arrnbStationsVides+" station(s) vide(s) ("+Math.floor((arrnbStationsVides / arrnbStations)*100)+"% des stations"
+		+(((arrnbStationsVides / arrnbStations) > (nbStationsVides / nbStations))?badUp:greatDown)+")<br/>";
+		
+	result += "<img src='images/analysePopup/stationBonus.png'/> "
+		+arrnbStationsBonus+ " station(s) bonus ("+Math.floor((arrnbStationsBonus / arrnbStations)*100)+"% des stations"
+		+(((arrnbStationsBonus / arrnbStations) > (nbStationsBonus / nbStations))?greatUp:badDown)+")<br/><br/>";
+		
+	result += "<img src='images/analysePopup/velov.png'/> "
+		+arrnbVelos+" vélos disponibles ("+Math.floor((arrnbVelos / arrnbEmplacements)*100)+"%"
+		+(((arrnbVelos / arrnbEmplacements) > (nbVelos / nbEmplacementsTotal))?greatUp:badDown)+")<br/>";
+		
+	result += "<img src='images/analysePopup/emplacementLibre.png'/> "
+		+arrnbEmplacementsVides+" emplacements vides ("+Math.floor((arrnbEmplacementsVides / arrnbEmplacements)*100)+"% des emplacements"
+		+(((arrnbEmplacementsVides / arrnbEmplacements) > nbEmplacements / nbEmplacementsTotal)?greatUp:badDown)+")<br/>";
+		
+	result += "<img src='images/analysePopup/tousEmplacements.png'/> "+arrnbEmplacements+" emplacements au total"
+		+((arrnbEmplacements > nbEmplacementsTotal / 12)?greatUp:badDown)+"<br/>";
+		
+	result += "<img src='images/analysePopup/velovstation.png'/> "+arrnbEmplacementsParStation+" emplacements par station"
+		+((arrnbEmplacementsParStation > nbEmplacementsTotal / nbStations)?greatUp:badDown)+"<br/>";
+		
+	result += "<img src='images/analysePopup/velovstation.png'/> "+arrnbVelosParStation+" vélos par station"
+		+((arrnbVelosParStation > nbVelos / nbStations)?greatUp:badDown)+"<br/><br/>";
+	
+	result += "<img src='images/analysePopup/NWstation.png'/> "
+		+arrnbStationsFermees+" stations fermées ("+Math.floor((arrnbStationsFermees / arrnbStations)*100)+"% des stations"
+		+(((arrnbStationsFermees / arrnbStations) > (nbStationsFermees / nbStations))?badUp:greatDown)+")<br/>";
+	result += "<img src='images/analysePopup/NWvelov.png'/> "
+		+arrnbEmplacementsEnPanne+" emplacements en panne ("+Math.floor((arrnbEmplacementsEnPanne / arrnbEmplacements)*100)+"% des emplacements"
+		+(((arrnbEmplacementsEnPanne / arrnbEmplacements) > (nbEmplacementsEnPanne / nbEmplacementsTotal))?badUp:greatDown)+")<br/>";
+	
+	
+	
+	return "<div class='popupContentLeaflet'><h3>"+name+"</h3>"
+		+result
+		+"</div>"
+}
 
 
 function convertToRad(input){

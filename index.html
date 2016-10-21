@@ -32,8 +32,11 @@
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						<li class="nav-item">
-							<form class="form-inline">
-								<input class="form-control" type="text" placeholder="Rechercher">
+							<form class="form-inline" onSubmit="return validateLocationSearch();">
+								<input id="location" list="stations" class="form-control" type="text" placeholder="Rechercher"/>
+								<datalist id="stations">
+								
+								</datalist>
 							</form>
 						</li>
 						<li class="nav-item">
@@ -136,16 +139,23 @@
 					--><span class="imgInfos card"><img src="images/tech/font-awesome.jpg"/></span><!--
 					--><span class="imgInfos card"><img src="images/tech/mdb.jpg"/></span><!--
 					--><span class="imgInfos card"><img src="images/tech/leaflet.png"/></span>
-					
 				</div>
 				
 			</div>
 		</div>
 		<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+		
+		<script type="text/javascript" src="lib/tether/tether.min.js"></script>
+		
 		<script type="text/javascript" src="lib/mdb/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
 		<script type="text/javascript" src="lib/mdb/js/mdb.min.js"></script>
+		
+		<script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+		
 		<script type="text/javascript" src="scripts/script.js"></script>
 		<script type="text/javascript" src="scripts/map.js"></script>
+		<script type="text/javascript">
+			
+		</script>
 	</body>
 </html>
