@@ -43,3 +43,4 @@ function declareEvents(){
 		$("#results").slideUp();
     });
 }
+

@@ -539,3 +539,9 @@ req.onreadystatechange = function (aEvt) {
   }
 };
 req.send(null);
+
+
+/*map.on("popupopen", function(){
+	console.log($("g").length);
+	$("g")
+});*/

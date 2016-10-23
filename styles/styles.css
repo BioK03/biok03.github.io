@@ -177,6 +177,34 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 	
 }
 
+.leaflet-marker-icon {
+    -webkit-transition: 0.3s ease;
+        -moz-transition: 0.3s ease;
+         -ms-transition: 0.3s ease;
+          -o-transition: 0.3s ease;
+             transition: 0.3s ease;
+}
+
+.leaflet-marker-icon:hover {
+	margin-left: -15px !important;
+	margin-top: -15px !important;
+	width: 30px !important;
+	height: 30px !important;
+}
+
+
+g * {
+	-webkit-transition: 0.3s ease;
+        -moz-transition: 0.3s ease;
+         -ms-transition: 0.3s ease;
+          -o-transition: 0.3s ease;
+             transition: 0.3s ease;
+}
+
+g:hover * {
+	fill-opacity: 0.5;
+}
+
 @media screen and (max-width: 1250px){
 	.leaflet-marker-icon {
 		margin-left: -15px !important;
