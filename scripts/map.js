@@ -270,7 +270,7 @@ function parseVelovData(velovData){
                 iconAnchor: [8, 8],
                 popupAnchor: [0, -8]
             }),
-			keyword: String(value.name).split(" - ")[1]
+			keyword: value.name.substring(value.name.split(" ")[0].length+3, value.name.length).replace("'", "`")
         }).bindPopup(
             L.popup({
                 maxWidth: 1920
@@ -286,9 +286,10 @@ function parseVelovData(velovData){
                     +"</span>"
                 +"</div>"
             )
-        ).addTo(map);		
+        ).addTo(map);
 		
-		$("#stations").append("<option value='"+String(value.name).split(" - ")[1]+"'/>");
+		
+		$("#stations").append("<option value='"+value.name.substring(value.name.split(" ")[0].length+3, value.name.length).replace("'", "`")+"'/>");
 
 
         markers.push(currentMarker);
@@ -345,7 +346,6 @@ function validateLocationSearch(){
 	$val = $("#location").val();
 	markers.forEach(function(value){
 		if(value.options.keyword == $val){
-			console.log(value);
 			map.panTo(value._latlng);
 			value.openPopup();
 			$("#location").val("");
