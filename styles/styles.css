@@ -58,6 +58,16 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
     display: initial;
 }
 
+.leaflet-popup-content a {
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
+.leaflet-popup-content a , .leaflet-popup-content a:active , .leaflet-popup-content a:hover , .leaflet-popup-content a:focus , .leaflet-popup-content a:visited {
+	color: #E11F26;
+}
+
 .card i {
     font-style: normal;
     font-size: 70%;
