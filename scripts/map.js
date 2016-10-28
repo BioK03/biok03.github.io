@@ -249,7 +249,7 @@ function parseVelovData(velovData){
         var imagePointer = "";
         if(value.status != "OPEN")
         {
-            imagePointer = "images/gris.png";
+            imagePointer = "images/rouge.png";
         }
         else if(value.available_bikes == 0)
         {
