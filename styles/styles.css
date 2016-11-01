@@ -217,3 +217,25 @@ g:hover * {
 		font-size: 2em;
 	}
 }
+
+.imgkpi {
+	width: 100%;
+	display: block;
+}
+
+#qlik {
+	margin: 0 auto;
+	display: block;
+	cursor: pointer;
+	text-align: center;
+}
+
+#qlik img {
+	height: 2.5em;
+	display: inline-block;
+}
+
+.card .imgopt {
+	display: none;
+}
+
