@@ -62,6 +62,188 @@ function declareEvents(){
 }
 
 var chartAttributes = {
+	"chartkpi01-1": {
+		type: 'bar',
+		data: {
+			labels: ["2022 - Place Carnot", "7022 - Jaurès / Lagrange", "10006 - Charpennes (FAR)", "4024 - Lyon Métropole", "7030 - Quartie Général Frère", "7003 - Gambetta / Garibaldi (FAR)", "3036 - Félix Faure / Vivier Merle"],
+			datasets: [{
+				label: 'Stations au plus fort taux d\'occupation',
+				data: [22.8, 22.5, 20.3, 20.3, 20, 18.6, 18.2],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Stations au plus fort taux d'occupation"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi01-2": {
+		type: 'bar',
+		data: {
+			labels: ["7ème", "2ème", "9ème", "3ème", "8ème", "Villeurbanne", "6ème", "5ème", "Caluire-et-Cuire", "1er", "4ème", "Vaulx-en-Velin"],
+			datasets: [{
+				label: 'Arrondissements au plus fort taux d\'occupation',
+				data: [11.4, 10.5, 9.9, 9.8, 9.6, 9.5, 8.4, 7.6, 7.3, 7, 6.1, 3.2],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Arrondissements au plus fort taux d'occupation"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi02-1": {
+		type: 'bar',
+		data: {
+			labels: ["9052 - Balmont", "9050 - Allée de l'Europe", "9051 - Andrei Sakharov", "4005 - Place Bertone", "8003 - Claude Bernard Lyon 1", "4009 - Jacquard / Denfert-Rochereau", "8059 - Laennec / Pinel", "10013 - Cusset", "4041 - Boussanges / Austerlitz"],
+			datasets: [{
+				label: 'Stations au plus faible taux d\'occupation',
+				data: [0.6, 0.6, 1, 1.6, 1.8, 1.9, 2, 2.2, 2.4],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Stations au plus faible taux d'occupation"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi02-2": {
+		type: 'bar',
+		data: {
+			labels: ["Vaulx-en-Velin", "4ème", "1er", "Caluire-et-Cuire", "5ème", "6ème", "Villeurbanne", "8ème", "3ème", "9ème", "2ème", "7ème"],
+			datasets: [{
+				label: 'Arrondissements au plus faible taux d\'occupation',
+				data: [3.2, 6.1, 7, 7.3, 7.6, 8.4, 9.5, 9.6, 9.8, 9.9, 10.5, 11.4],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Arrondissements au plus faible taux d'occupation"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi03-1": {
+		type: 'line',
+		data: {
+			labels: ["09_10_2016", "10_10_2016", "11_10_2016", "12_10_2016", "13_10_2016", "14_10_2016", "15_10_2016", "16_10_2016", "17_10_2016", "18_10_2016", "19_10_2016", "20_10_2016", "21_10_2016"],
+			datasets: [{
+				label: 'Nombre de stations apparaissant vides dans la journée',
+				fill: false,
+				data: [145, 236, 241, 247, 143, 167, 228, 168, 204, 234, 222, 229, 159],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Nombre de stations apparaissant vides dans la journée"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi04-1": {
+		type: 'line',
+		data: {
+			labels: ["09_10_2016", "10_10_2016", "11_10_2016", "12_10_2016", "13_10_2016", "14_10_2016", "15_10_2016", "16_10_2016", "17_10_2016", "18_10_2016", "19_10_2016", "20_10_2016", "21_10_2016"],
+			datasets: [{
+				label: 'Nombre de stations apparaissant pleines dans la journée',
+				fill: false,
+				data: [143, 234, 240, 231, 178, 194, 208, 210, 240, 241, 235, 233, 200],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Nombre de stations apparaissant pleines dans la journée"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
 	"chartkpi05": {
 		type: 'line',
 		data: {
@@ -403,11 +585,12 @@ var chartAttributes = {
 		}
 	},
 	"chartkpi13-1": {
-		type: 'bar',
+		type: 'line',
 		data: {
 			labels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
 			datasets: [{
 				label: 'Vélos disponibles en moyenne',
+				fill: false,
 				data: [4380, 4530, 4560, 4160, 3090, 2040, 3450],
 				backgroundColor: 'rgb(225,31,38)'
 			}]
@@ -432,11 +615,12 @@ var chartAttributes = {
 		}
 	},
 	"chartkpi13-2": {
-		type: 'bar',
+		type: 'line',
 		data: {
 			labels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
 			datasets: [{
 				label: 'Vélos disponibles en moyenne',
+				fill: false,
 				data: [4530, 4760, 4790, 4320, 3370, 2190, 3440],
 				backgroundColor: 'rgb(225,31,38)'
 			}]
@@ -461,11 +645,12 @@ var chartAttributes = {
 		}
 	},
 	"chartkpi13-3": {
-		type: 'bar',
+		type: 'line',
 		data: {
 			labels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
 			datasets: [{
 				label: 'Vélos disponibles en moyenne',
+				fill: false,
 				data: [4290, 4390, 4420, 4060, 2920, 1960, 3450],
 				backgroundColor: 'rgb(225,31,38)'
 			}]
@@ -490,11 +675,12 @@ var chartAttributes = {
 		}
 	},
 	"chartkpi14": {
-		type: 'bar',
+		type: 'line',
 		data: {
 			labels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
 			datasets: [{
 				label: 'Vélos disponibles en moyenne',
+				fill: false,
 				data: [4290, 4390, 4420, 4060, 2920, 1960, 3450],
 				backgroundColor: 'rgb(225,31,38)'
 			}]
