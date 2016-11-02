@@ -23,7 +23,7 @@ var greatDown = '<i class="text-success material-icons" title="Inférieur à la 
 var badDown = '<i class="text-danger material-icons" title="Inférieur à la moyenne">arrow_drop_down</i>';
 
 L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
-	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: 'OpenData by <a href="https://developer.jcdecaux.com/#/home" target="_blank">JCDecaux</a>.Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 

@@ -27,8 +27,11 @@ $("#resultsLink").click(function(){
 	
     $("#results").slideDown();
 	
-	loadCharts();
 	declareEvents();
+	setTimeout(function(){
+		loadCharts();
+	}, 500);
+	
 });
 
 $("#mapLink").click(function(){
@@ -72,6 +75,7 @@ var chartAttributes = {
 		},
 		
 		options: {
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Nombre de vélos / portiques en panne en moyenne dans la semaine"
@@ -91,20 +95,20 @@ var chartAttributes = {
 		},
 		
 		options: {
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Nombre de vélos / portiques en panne en moyenne dans la semaine"
 			}
 		}
 	},
-	"chartkpi09": {
-		type: 'line',
+	"chartkpi07-1": {
+		type: 'bar',
 		data: {
-			labels: ["Semaine 40", "Semaine 41", "Semaine 42"],
+			labels: ["11°C", "12°C", "13°C", "14°C", "20°C", "25°C", "26°C", "27°C", "28°C", "30°C", "31°C"],
 			datasets: [{
-				label: 'Portiques en panne',
-				fill: false,
-				data: [42.08, 543.15, 326.58],
+				label: 'Utilisation',
+				data: [4110, 3330, 4500, 4550, 5740, 2520, 5420, 3900, 7110, 2020, 6650],
 				backgroundColor: 'rgb(225,31,38)'
 			}]
 		},
@@ -114,9 +118,193 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			legend: {
+				position: "right"
+			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
-				text: "Nombre de vélos / portiques en panne en moyenne dans la semaine"
+				text: "Utilisation moyenne à 13h en fonction de la température"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi07-2": {
+		type: 'bar',
+		data: {
+			labels: ["Partiellement couvert", "Nuages éparses", "Dégagé", "Couvert"],
+			datasets: [{
+				label: 'Utilisation',
+				data: [4550, 6750, 2640, 2290],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			legend: {
+				position: "right"
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Utilisation moyenne à 13h en fonction de la météo"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi08-1": {
+		type: 'pie',
+		data: {
+			labels: ["6043 - Cité Internationale - Cinéma", "7006 - Gerland", "40014 - Gare L.Bonnevay", "3091 - Hôpital Neurologique", "10002 - Insa (FAR)", "10056 - 11 Novembre / Gaston Berger", "3001 - Part-Dieu / Vivier Merle (FAR)", "9033 - Gorge de Loup", "3038 - Vivier Merle / Paul Bert", "5030 - Charcot / Résidence Universitaire"],
+			datasets: [{
+				label: 'Utilisation',
+				data: [11.4, 11, 10.3, 10.2, 9.9, 9.7, 9.6, 9.4, 9.3, 9.2],
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 1.0)', 'rgba(50, 50, 50, 0.9)', 'rgba(50, 50, 50, 0.8)', 'rgba(50, 50, 50, 0.7)', 'rgba(50, 50, 50, 0.6)', 'rgba(50, 50, 50, 0.5)', 'rgba(50, 50, 50, 0.4)', 'rgba(50, 50, 50, 0.3)', 'rgba(50, 50, 50, 0.2)']
+			}]
+		},
+		
+		options: {
+			legend: {
+				position: "right"
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Stations les plus utilisées tous temps confondus"
+			},
+			scales: {
+				gridLines: {
+					options: {
+						display: false
+					}
+				}
+			}
+		}
+	},
+	"chartkpi08-2": {
+		type: 'pie',
+		data: {
+			labels: ["6043 - Cité Internationale - Cinéma", "7006 - Gerland", "10014 - Gare L.Bonnevay", "3091 - Hôpital Neurologique", "10002 - Insa (FAR)", "3001 - Part-Dieu / Vivier Merle (FAR)", "10056 - 11 Novembre / Gaston Berger", "3038 - Vivier Merle / Paul Bert", "9033 - Gorge de Loup", "3010 - Part-Dieu / Cuirassiers (FAR)"],
+			datasets: [{
+				label: 'Utilisation',
+				data: [11.1, 11, 10.1, 10, 9.9, 9.8, 9.7, 9.6, 9.5, 9.3],
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 1.0)', 'rgba(50, 50, 50, 0.9)', 'rgba(50, 50, 50, 0.8)', 'rgba(50, 50, 50, 0.7)', 'rgba(50, 50, 50, 0.6)', 'rgba(50, 50, 50, 0.5)', 'rgba(50, 50, 50, 0.4)', 'rgba(50, 50, 50, 0.3)', 'rgba(50, 50, 50, 0.2)']
+			}]
+		},
+		
+		options: {
+			legend: {
+				position: "right"
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Stations les plus utilisées par temps clair"
+			},
+			scales: {
+				gridLines: {
+					options: {
+						display: false
+					}
+				}
+			}
+		}
+	},
+	"chartkpi08-3": {
+		type: 'pie',
+		data: {
+			labels: ["5030 - Charcot / Résidence Universitaire", "1022 - Place Tolozan (FAR)", "9033 - Gorge de Loup", "3091 - Hôpital Neurologique", "6043 - Cité Internationale - Cinéma", "10014 - Gare L.Bonnevay", "10063 - Perrin / Jean Jaurès", "7006 - Gerland", "4004 - Hénon", "5001 - Place Varillon (Funiculaire Saint-Just)"],
+			datasets: [{
+				label: 'Utilisation',
+				data: [12.4, 10.5, 10.5, 10.3, 10.2, 10.2, 9.6, 8.8, 8.8, 8.6],
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 1.0)', 'rgba(50, 50, 50, 0.9)', 'rgba(50, 50, 50, 0.8)', 'rgba(50, 50, 50, 0.7)', 'rgba(50, 50, 50, 0.6)', 'rgba(50, 50, 50, 0.5)', 'rgba(50, 50, 50, 0.4)', 'rgba(50, 50, 50, 0.3)', 'rgba(50, 50, 50, 0.2)']
+			}]
+		},
+		
+		options: {
+			legend: {
+				position: "right"
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Stations les plus utilisées par temps couvert"
+			},
+			scales: {
+				gridLines: {
+					options: {
+						display: false
+					}
+				}
+			}
+		}
+	},
+	"chartkpi08-4": {
+		type: 'pie',
+		data: {
+			labels: ["1022 - Place Tolozan (FAR)", "6043 - Cité Internationale - Cinéma", "10014 - Gare L.Bonnevay", "3091 - Hôpital Neurologique", "5030 - Charcot / Résidence Universitaire", "10112 - Place de la Reconnaissance", "10063 - Perrin / Jean Jaurès", "7006 - Gerland", "10054 - Stalingrad / Meliès", "4004 - Hénon"],
+			datasets: [{
+				label: 'Utilisation',
+				data: [12.1, 11.5, 10.9, 10.7, 10.6, 10.4, 9.5, 8.2, 8.1, 8],
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 1.0)', 'rgba(50, 50, 50, 0.9)', 'rgba(50, 50, 50, 0.8)', 'rgba(50, 50, 50, 0.7)', 'rgba(50, 50, 50, 0.6)', 'rgba(50, 50, 50, 0.5)', 'rgba(50, 50, 50, 0.4)', 'rgba(50, 50, 50, 0.3)', 'rgba(50, 50, 50, 0.2)']
+			}]
+		},
+		
+		options: {
+			legend: {
+				position: "right"
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Stations les plus utilisées par temps 'Nuages éparses'"
+			},
+			scales: {
+				gridLines: {
+					options: {
+						display: false
+					}
+				}
+			}
+		}
+	},
+	"chartkpi09": {
+		type: 'line',
+		data: {
+			labels: ["03_10_2016", "09_10_2016", "10_10_2016", "11_10_2016", "12_10_2016", "13_10_2016", "14_10_2016", "15_10_2016", "16_10_2016", "17_10_2016", "18_10_2016", "19_10_2016", "20_10_2016", "21_10_2016"],
+			datasets: [{
+				label: 'Portiques en panne',
+				fill: false,
+				data: [10.45, 31.62, 71.18, 105.31, 89.47, 62.43, 66, 71.29, 77.46, 64.93, 77.56, 82.08, 69.88, 32.13],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Nombre de vélos / portiques en panne en moyenne"
 			},
 			scales: {
 				yAxes: [{
@@ -142,6 +330,7 @@ var chartAttributes = {
 			legend: {
 				position: "right"
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Les stations qui ont le plus de vélos en panne durant une semaine"
@@ -170,6 +359,7 @@ var chartAttributes = {
 			legend: {
 				position: "right"
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Les stations les plus vides"
@@ -198,6 +388,7 @@ var chartAttributes = {
 			legend: {
 				position: "right"
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Les stations les plus pleines"
@@ -226,6 +417,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Vélos disponibles selon le jour de la semaine"
@@ -254,6 +446,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Vélos disponibles selon le jour de la semaine, de 20h à 5h"
@@ -282,9 +475,10 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
-				text: "Vélos disponibles selon le jour de la semaine, de 5h à 20h"
+				text: "Vélos disponibles selon la semaine, de 5h à 20h"
 			},
 			scales: {
 				yAxes: [{
@@ -310,6 +504,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Vélos disponibles selon la semaine"
@@ -338,6 +533,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Nombre de station par habitant selon l'arrondissement"
@@ -366,6 +562,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Nombre de vélos disponibles par habitant selon l'arrondissement"
@@ -376,6 +573,122 @@ var chartAttributes = {
 						beginAtZero:true
 					}
 				}]
+			}
+		}
+	},
+	"chartkpi17-1": {
+		type: 'bar',
+		data: {
+			labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" ,"15", "16", "17", "18", "19", "20", "21", "22", "23"],
+			datasets: [{
+				label: 'Pourcentage moyen de vélos disponible par heure',
+				data: [50, 50, 51, 51, 51, 51, 51, 48, 46, 48, 49, 47, 46, 46, 47, 46, 45, 43, 42, 45, 48, 49, 49, 50],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Pourcentage moyen de vélos disponible par heure"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi17-2": {
+		type: 'doughnut',
+		data: {
+			labels: ["Pourcentage moyen de vélos disponible par heure", ""],
+			datasets: [{
+				label: 'Pourcentage moyen de vélos disponible par heure',
+				data: [48, 52],
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 0.0)']
+			}]
+		},
+		options: {
+			animation: {
+				onProgress: drawDoughnutValues,
+				onComplete: drawDoughnutValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Pourcentage moyen de vélos disponible par heure"
+			},
+			scales: {
+				gridLines: {
+					options: {
+						display: false
+					}
+				}
+			}
+		}
+	},
+	"chartkpi18-1": {
+		type: 'bar',
+		data: {
+			labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" ,"15", "16", "17", "18", "19", "20", "21", "22", "23"],
+			datasets: [{
+				label: 'Moyenne du nombre de places disponibles par heure',
+				data: [48, 48, 48, 48, 47, 47, 47, 50, 52, 50, 50, 51, 53, 52, 52, 53, 54, 56, 56, 54, 51, 49, 49, 49],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Moyenne du nombre de places disponibles par heure"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi18-2": {
+		type: 'doughnut',
+		data: {
+			labels: ["Pourcentage moyen du nombre de places disponibles par heure", ""],
+			datasets: [{
+				label: 'Pourcentage moyen du nombre de places disponibles par heure',
+				data: [51, 49],
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 0.0)']
+			}]
+		},
+		options: {
+			animation: {
+				onProgress: drawDoughnutValues,
+				onComplete: drawDoughnutValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Pourcentage moyen du nombre de places disponibles par heure"
+			},
+			scales: {
+				gridLines: {
+					options: {
+						display: false
+					}
+				}
 			}
 		}
 	},
@@ -394,6 +707,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Durée moyenne pendant laquelle une station est restée vide"
@@ -414,7 +728,7 @@ var chartAttributes = {
 			datasets: [{
 				label: 'Durée moyenne pendant laquelle une station est restée vide',
 				data: [7.4, 16.6],
-				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 0.6)']
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 0.0)']
 			}]
 		},
 		options: {
@@ -422,6 +736,7 @@ var chartAttributes = {
 				onProgress: drawDoughnutValues,
 				onComplete: drawDoughnutValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Durée moyenne pendant laquelle une station est restée vide (heures)"
@@ -450,6 +765,7 @@ var chartAttributes = {
 				onProgress: drawBarValues,
 				onComplete: drawBarValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Durée moyenne pendant laquelle une station est restée pleine"
@@ -470,7 +786,7 @@ var chartAttributes = {
 			datasets: [{
 				label: 'Durée moyenne pendant laquelle une station est restée pleine',
 				data: [5.49, 18.51],
-				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 0.6)']
+				backgroundColor: ['rgb(225,31,38)', 'rgba(50, 50, 50, 0.0)']
 			}]
 		},
 		options: {
@@ -478,6 +794,7 @@ var chartAttributes = {
 				onProgress: drawDoughnutValues,
 				onComplete: drawDoughnutValues
 			},
+			maintainAspectRatio: false,
 			title: {
 				display: true,
 				text: "Durée moyenne pendant laquelle une station est restée pleine"
@@ -488,6 +805,60 @@ var chartAttributes = {
 						display: false
 					}
 				}
+			}
+		}
+	},
+	"chartkpi23-1": {
+		type: 'bar',
+		data: {
+			labels: ["5°C", "6°C", "7°C", "8°C", "9°C", "10°C", "11°C", "12°C", "13°C", "14°C", "15°C", "16°C", "17°C", "18°C", "19°C", "20°C", "21°C", "22°C", "23°C", "24°C", "25°C", "26°C", "27°C", "28°C", "29°C", "30°C", "31°C", "32°C", "33°C", "34°C", "35°C"],
+			datasets: [{
+				label: 'Taux d\'utilisation en fonction de la température',
+				data: [1.042, 0.969, 1.035, 0.999, 1.011, 0.977, 0.945, 0.85, 0.778, 0.956, 0.928, 0.975, 0.991, 1.042, 1.028, 0.98, 1.022, 0.989, 0.949, 0.984, 0.989, 0.946, 0.881, 0.866, 0.865, 0.918, 0.879, 0.842, 0.818, 0.791, 0.764],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		options: {
+			animation: {
+				onProgress: drawBarValues,
+				onComplete: drawBarValues
+			},
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Taux d'utilisation en fonction de la température"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	},
+	"chartkpi24-1": {
+		type: 'bar',
+		data: {
+			labels: ["17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "80", "81", "82", "83", "85", "86", "87", "88", "92", "93", "94"],
+			datasets: [{
+				label: 'Taux d\'utilisation en fonction de l\'humidité',
+				data: [0.865, 0.711, 0.823, 0.764, 0.922, 0.793, 0.816, 0.888, 0.813, 0.868, 0.837, 0.846, 0.882, 0.836, 0.864, 0.911, 0.882, 0.823, 0.866, 0.963, 0.892, 0.906, 0.893, 0.9, 1.005, 0.865, 0.963, 0.922, 0.954, 1.032, 0.929, 1.001, 1.031, 0.947, 0.894, 0.95, 0.995, 0.866, 0.974, 0.986, 1.007, 0.974, 0.945, 1.04, 0.984, 0.932, 0.902, 1.016, 0.988, 1.011, 0.908, 1.023, 0.996, 1.028, 0.972, 1.024, 0.984, 1.003, 1.03, 1.003, 0.987, 1.038, 1.06, 1.001, 0.976, 1.019, 1.047, 0.974, 1.045, 1.005, 1.026, 0.887, 0.992],
+				backgroundColor: 'rgb(225,31,38)'
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			title: {
+				display: true,
+				text: "Taux d'utiliation en fonction de l'humidité"
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
 			}
 		}
 	},
