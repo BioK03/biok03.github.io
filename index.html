@@ -128,308 +128,365 @@
 					Ces résultats sont issus d'une analyse d'un flux OpenData fourni par JCDecaux du 3 au 27 octobre 2016. Ils répondent à des KPI précises mentionnées dans les attentes du projet données par notre client.<br/>
 					<span id="qlik"><img src="images/qlik.png"/> Afficher les aperçus Qlik Sense</span>
 				</span>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #01 : Quelles stations ont le plus grand nombre d'utilisations au cours d'une journée ?</span>
-					<img src="images/kpi/1-1.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi01-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi01-2" width="400" height="100"></canvas>
+				
+				<span class="col-xs-10 card title spanCat" data-toggle="collapse" data-target="#uGlobal">Utilisation globale</span>
+				<div class="clearfix"></div>
+				<div id="uGlobal">
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #05 : Quel est le nombre de vélos disponibles tout au long de la journée ?</span>
+						<img src="images/kpi/5-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi05" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ce graphique présente le nombre de vélos disponibles en fonction de l'heure. 
+							On peut observer une chute de disponibilité aux heures de pointes : vers 7h, entre 11h et midi, et enfin entre 17h et 19h. 
+							On observe aussi qu'en journée, la disponibilité sur le réseau est toujours inférieure à celle de la nuit.
+						</span>
 					</div>
-					<span class="kpiText">
-						Les stations au taux d'occupation le plus élevé ont tendance à être plutôt en périphérie. 
-						Les arrondissements ayant un fort taux d'occupation ont tendance à être ceux ayant le plus de stations, 
-						avec de faibles disparités entres elles dans leur occupation.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #02 : Quelles stations sont les moins utilisées pendant une journée ?</span>
-					<img src="images/kpi/2-1.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi02-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi02-2" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #06 : A quelles heures y a-t-il le plus de vélos utilisés ?</span>
+						<img src="images/kpi/6-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi06" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ce graphique présente le nombre d'utilisations en fonction de l'heure. 
+							Une fois de plus, on observe une forte corrélation. Ainsi l'utilisation des vélos est très importante aux heures de pointes. 
+							Le pic le plus important se situe à 18h, ce qui semble logique. On note aussi une utilisation assez importante en soirée.
+						</span>
 					</div>
-					<span class="kpiText">
-						Les stations les plus au centre (proches de l'hôtel de ville) ont un taux d'occupation moindre. 
-						Les arrondissements au taux d'occupation faible contiennent assez peu de stations avec des disparités plutôt fortes.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #03 : Quel est le nombre de stations apparaissant sans vélo à au moins un moment de la journée ?</span>
-					<img src="images/kpi/3-1.jpg" class="imgkpi imgopt"/>
-					<div>
-						<canvas id="chartkpi03-1" width="400" height="100"></canvas>
-					</div>
-					<span class="kpiText">
-						Selon le jour, entre 45% et 65% des stations se retrouvent sans vélo à un moment ou un autre de la journée. 
-						On a retrouvé des variations importantes selon le jour, avec moins de stations vides le vendredi et le dimanche.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #04 : Combien de stations sont au moins une fois pleine dans une journée ?</span>
-					<img src="images/kpi/4-1.jpg" class="imgkpi imgopt"/>
-					<div>
-						<canvas id="chartkpi04-1" width="400" height="100"></canvas>
-					</div>
-					<span class="kpiText">
-						Selon le jour, entre 55% et 70% des stations se retrouvent sans place libre à un moment ou un autre, 
-						elles sont donc plus souvent pleines que vides. Ce chiffre est relativement homogène selon le jour.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #05 : Quel est le nombre de vélos disponibles tout au long de la journée ?</span>
-					<img src="images/kpi/5-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi05" width="400" height="100"></canvas>
-					<span class="kpiText">
-						Ce graphique présente le nombre de vélos disponibles en fonction de l'heure. 
-						On peut observer une chute de disponibilité aux heures de pointes : vers 7h, entre 11h et midi, et enfin entre 17h et 19h. 
-						On observe aussi qu'en journée, la disponibilité sur le réseau est toujours inférieure à celle de la nuit.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #06 : A quelles heures y a-t-il le plus de vélos utilisés ?</span>
-					<img src="images/kpi/6-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi06" width="400" height="100"></canvas>
-					<span class="kpiText">
-						Ce graphique présente le nombre d'utilisations en fonction de l'heure. 
-						Une fois de plus, on observe une forte corrélation. Ainsi l'utilisation des vélos est très importante aux heures de pointes. 
-						Le pic le plus important se situe à 18h, ce qui semble logique. On note aussi une utilisation assez importante en soirée.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #07 : Combien de vélos sont utilisés selon la météo ?</span>
-					<img src="images/kpi/7-1.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi07-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi07-2" width="400" height="100"></canvas>
-					</div>
-					<span class="kpiText">
-						Ces deux graphiques permettent de visualiser l'utilisation moyenne a 13h pour différentes conditions météorologiques et différentes températures. 
-						On constate que les pics d'utilisation ont été réalisés pendant des périodes de fortes températures. 
-						Cependant, on relève aussi une utilisation importante sous des températures plus fraîches. 
-						Il est donc difficile de déduire une vraie corrélation entre la température extérieure et l'utilisation des vélos. 
-						Pendant le relevé de nos données, la météo n'a pas beaucoup changé. 
-						Ainsi, il semble difficile de tirer des conclusions sur le nombre d'utilisations en fonction de la météo.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #08 : Les stations les plus actives le sont-elles indépendamment de la météo ?</span>
-					<img src="images/kpi/8-1.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi08-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi08-2" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi08-3" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi08-4" width="400" height="100"></canvas>
-					</div>
-					<span class="kpiText">
-						Ces graphiques permettent de visualiser les 10 stations les plus actives sur le réseau pour différentes conditions météorologiques. 
-						On constate que malgré des changements dans l'ordre du top 10, les stations les plus utilisées restent les mêmes peu importe le temps. 
-						On peut en déduire que la météo n'a pas une grande influence sur le classement des stations les plus utilisées. 
-						Cependant, nos enregistrements de données n'ayant pas eu lieu lors de période pluvieuse ou autrement critique, nous ne pouvons pas être certains de nos conclusions.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #09 : Combien d'emplacements sont en panne le long de la semaine ?</span>
-					<img src="images/kpi/9-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi09" width="400" height="100"></canvas>
-					<span class="kpiText">
-						Ce graphique permet de visualiser le nombre de vélos/portiques en panne durant la semaine. 
-						On retrouve alors des données entre le 3 Octobre et le 21 Octobre. On observe un nombre de vélos en panne assez régulier aux alentours de 65 vélos en moyenne.
-						Cependant, on peut apercevoir une hausse importante le 11 Octobre, ainsi que moins de vélos en panne le dimanche 9 Octobre.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #10 : Quelles stations ont le plus grand nombre de vélos en panne dans une semaine ?</span>
-					<img src="images/kpi/10-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi10" width="400" height="100"></canvas>
-					<span class="kpiText">
-						Ce graphique montre les stations qui ont le plus grand nombre de vélos en panne dans une semaine. 
-						On remarque que la station Pêcherie est bien au dessus des autres car elle est fermée. 
-						On constate aussi que la station Gambetta admet en moyenne 1.4 vélo en panne de plus que les autres stations.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #11 : Quelles stations sont le plus souvent vides ?</span>
-					<img src="images/kpi/11-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi11" width="400" height="100"></canvas>
-					<span class="kpiText">
-						Ce graphique montre les stations les plus souvent vides. On remarque encore que Pêcherie l'est à 100 % à cause de sa fermeture. 
-						On observe qu'il y a beaucoup de stations du 4ème arrondissement dans ce graphique, car celui-ci est un des moins utilisés.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #12 : Quelles sont les stations qui sont le plus souvent pleines ?</span>
-					<img src="images/kpi/12-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi12" width="400" height="100"></canvas>
-					<span class="kpiText">
-						 Ce graphique montre les stations les plus souvent pleines. 
-						 On remarque que ce sont des stations du 9ème et de Villeurbanne qui ressortent le plus ce qui les met bien en relation avec les arrondissements les plus utilisés.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #13 : Comment sont utilisées les stations selon le jour de la semaine ? (avec échantillon par heure)</span>
-					<div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #13 : Comment sont utilisées les stations selon le jour de la semaine ? (avec échantillon par heure)</span>
 						<img src="images/kpi/13-1.jpg" class="imgkpi imgopt"/>
-						<canvas id="chartkpi13-1" width="400" height="200"></canvas>
+						<div>	
+							<canvas id="chartkpi13-1" width="400" height="200"></canvas>
+						</div>
+						<img src="images/kpi/13-2.jpg" class="imgkpi imgopt"/>
+						<img src="images/kpi/13-3.jpg" class="imgkpi imgopt"/>	
+						<div class="divKpi50">
+							<canvas id="chartkpi13-2" width="400" height="200"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi13-3" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Le nombre d'utilisations la journée (de 5h à 20h) est plus élevé que la nuit (environ 300 utilisation de plus). 
+							On aperçoit que cette différence est moindre le samedi soir et dimanche soir, avec environ 100 utilisations de différence. 
+							En semaine, les vélos disponibles sont d'environ 4500 en moyenne sur le réseau, quelque soit l'heure de la journée ou de la nuit.
+						</span>
 					</div>
-					<img src="images/kpi/13-2.jpg" class="imgkpi imgopt"/>
-					<img src="images/kpi/13-3.jpg" class="imgkpi imgopt"/>	
-					<div class="divKpi50">
-						<canvas id="chartkpi13-2" width="400" height="200"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi13-3" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #14 : Quelle est l'utilisation des stations selon les semaines ? (avec échantillon par jour)</span>
+						<img src="images/kpi/14-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi14" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							 Les utilisations varient énormément selon les jours de la semaine. 
+							 Ainsi, on aperçoit que le week-end (vendredi, samedi et dimanche), le nombre de vélos est moindre, car les personnes bougent plus. 
+							 Les autres jours, les utilisations restent stables.
+						</span>
 					</div>
-					<span class="kpiText">
-						Le nombre d'utilisations la journée (de 5h à 20h) est plus élevé que la nuit (environ 300 utilisation de plus). 
-						On aperçoit que cette différence est moindre le samedi soir et dimanche soir, avec environ 100 utilisations de différence. 
-						En semaine, les vélos disponibles sont d'environ 4500 en moyenne sur le réseau, quelque soit l'heure de la journée ou de la nuit.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #14 : Quelle est l'utilisation des stations selon les semaines ? (avec échantillon par jour)</span>
-					<img src="images/kpi/14-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi14" width="400" height="100"></canvas>
-					<span class="kpiText">
-						 Les utilisations varient énormément selon les jours de la semaine. 
-						 Ainsi, on aperçoit que le week-end (vendredi, samedi et dimanche), le nombre de vélos est moindre, car les personnes bougent plus. 
-						 Les autres jours, les utilisations restent stables.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #15 : Combien y a-t-il de stations par habitant ? (avec échantillon par arrondissement)</span>
-					<img src="images/kpi/15-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi15" width="400" height="100"></canvas>
-					<span class="kpiText">
-						 On voit ici que le 3ème est l'arrondissement privilégié par JCDecaux pour l'implémentation des stations.
-						 Aussi, on peut apercevoir que Caluire-et-Cuire et Vaulx-en-Velin possèdent peu de stations au regard de leur population.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #16 : Quel est le nombre de vélos disponibles par habitant selon l'arrondissement ?</span>
-					<img src="images/kpi/16-1.jpg" class="imgkpi imgopt"/>
-					<canvas id="chartkpi16" width="400" height="100"></canvas>
-					<span class="kpiText">
-						 Le 3ème arrondissement est aussi privilégié en nombre de vélos disponible par habitant. 
-						 On peut apercevois que le 1er, le 4ème et le 5ème ont moins de vélos par station en moyenne que les autres arrondissements, à contrario du 7ème. 
-						 Le nombre de vélos restent faible par habitant, mais reste logique en considérant l'utilisation de ce service.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #17 : Combien y a-t-il de vélos disponibles en moyenne pour chaque station au cours de la journée ?</span>
-					<img src="images/kpi/17-1.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi17-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi17-2" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #17 : Combien y a-t-il de vélos disponibles en moyenne pour chaque station au cours de la journée ?</span>
+						<img src="images/kpi/17-1.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi17-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi17-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							 Le diagramme en anneau indique le nombre de vélos disponibles en moyenne, par station. 
+							 On y constate qu'en moyenne, presque un vélo sur deux est disponible, ce qui traduit une bonne disponibilité moyenne. 
+							 Le diagramme de droite présente le nombre de vélos disponibles en moyenne heure par heure. 
+							 Il est intéressant de constater les deux fluctuations autour de 8h et de 18h 
+							 qui correspondent aux horaires de début et fin d'une journée de travail dans l'agglomération.
+						</span>
 					</div>
-					<span class="kpiText">
-						 Le diagramme en anneau indique le nombre de vélos disponibles en moyenne, par station. 
-						 On y constate qu'en moyenne, presque un vélo sur deux est disponible, ce qui traduit une bonne disponibilité moyenne. 
-						 Le diagramme de droite présente le nombre de vélos disponibles en moyenne heure par heure. 
-						 Il est intéressant de constater les deux fluctuations autour de 8h et de 18h 
-						 qui correspondent aux horaires de début et fin d'une journée de travail dans l'agglomération.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #18 : Quel est le taux de places vides pour chaque station pendant la journée ?</span>
-					<img src="images/kpi/18-1.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi18-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi18-2" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #18 : Quel est le taux de places vides pour chaque station pendant la journée ?</span>
+						<img src="images/kpi/18-1.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi18-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi18-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							 Ces deux diagrammes, compléments des précédents, mesurent la proportion de places disponibles, en moyenne, par station. 
+							 On y retrouve presque la moitié des places disponibles en moyenne et les deux variations (inverses cette fois ci) énoncées précédemment.
+						</span>
 					</div>
-					<span class="kpiText">
-						 Ces deux diagrammes, compléments des précédents, mesurent la proportion de places disponibles, en moyenne, par station. 
-						 On y retrouve presque la moitié des places disponibles en moyenne et les deux variations (inverses cette fois ci) énoncées précédemment.
-					</span>
 				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #19 : Les stations voisines (moins de 200 mètres) ont-elles une activité similaire ?</span>
-					<img src="images/kpi/19-1.jpg" class="imgkpi"/>
-					<span class="kpiText">Cas des 5 stations les plus actives</span>
-					<img src="images/kpi/19-2.jpg" class="imgkpi"/>
-					<span class="kpiText">Cas des 5 stations les moins actives</span>
-					<span class="kpiText">
-						On peut observer sur la capture présentant les 5 stations les moins actives que leurs voisines ont également une activité faible (	&lt;20%).
-						De même, les 5 stations les plus actives ont des voisines d'activité similaire.
-						Si l'on répète cette opération en sélectionnant des stations dans la liste, on se rendra compte que l'activité des voisines reflète l'activité des stations.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #20 : Existe t-il des stations très actives dont les stations voisines (à moins de 200 mètres) sont peu utilisées ?</span>
-					<img src="images/kpi/20-1.jpg" class="imgkpi"/>
-					<span class="kpiText">
-						Cette capture d'écran propose un aperçu de l'activité de toutes les stations. 
-						On peut voir l'allure générale du graphique, à droite, qui montre un échantillon de valeur presque continu. 
-						Ainsi, si l'on sélectionne une des stations les plus actives (premières dans la liste à gauche), on pourra observer le graphique de l'activité de ses voisines. 
-						On remarque ainsi que les stations les plus actives ont également des voisines très actives.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #21 : Combien de temps en moyenne une station vide reste vide ?</span>
-					<img src="images/kpi/21-1.jpg" class="imgkpi imgopt"/>
-					<img src="images/kpi/21-2.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi21-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi21-2" width="400" height="100"></canvas>
+				
+				<span class="col-xs-10 card title spanCat" data-toggle="collapse" data-target="#meteo">Utilisation selon la météo</span>
+				<div class="clearfix"></div>
+				<div id="meteo">
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #07 : Combien de vélos sont utilisés selon la météo ?</span>
+						<img src="images/kpi/7-1.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi07-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi07-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ces deux graphiques permettent de visualiser l'utilisation moyenne a 13h pour différentes conditions météorologiques et différentes températures. 
+							On constate que les pics d'utilisation ont été réalisés pendant des périodes de fortes températures. 
+							Cependant, on relève aussi une utilisation importante sous des températures plus fraîches. 
+							Il est donc difficile de déduire une vraie corrélation entre la température extérieure et l'utilisation des vélos. 
+							Pendant le relevé de nos données, la météo n'a pas beaucoup changé. 
+							Ainsi, il semble difficile de tirer des conclusions sur le nombre d'utilisations en fonction de la météo.
+						</span>
 					</div>
-					<span class="kpiText">
-						On peut observer que, mise a part quelques stations marginales, une station reste vide moins de 30 heures.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #22 : Quelle est la durée moyenne durant laquelle une station reste pleine ?</span>
-					<img src="images/kpi/22-1.jpg" class="imgkpi imgopt"/>
-					<img src="images/kpi/22-2.jpg" class="imgkpi imgopt"/>
-					<div class="divKpi50">
-						<canvas id="chartkpi22-1" width="400" height="100"></canvas>
-					</div><!--
-					--><div class="divKpi50">
-						<canvas id="chartkpi22-2" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #08 : Les stations les plus actives le sont-elles indépendamment de la météo ?</span>
+						<img src="images/kpi/8-1.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi08-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi08-2" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi08-3" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi08-4" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ces graphiques permettent de visualiser les 10 stations les plus actives sur le réseau pour différentes conditions météorologiques. 
+							On constate que malgré des changements dans l'ordre du top 10, les stations les plus utilisées restent les mêmes peu importe le temps. 
+							On peut en déduire que la météo n'a pas une grande influence sur le classement des stations les plus utilisées. 
+							Cependant, nos enregistrements de données n'ayant pas eu lieu lors de période pluvieuse ou autrement critique, nous ne pouvons pas être certains de nos conclusions.
+						</span>
 					</div>
-					<span class="kpiText">
-						On peut observer que, mise a part quelques stations marginales, une station reste pleine moins de 20 heures.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #23 : Existe t-il une corrélation entre la température moyenne et l'utilisation des stations ?</span>
-					<img src="images/kpi/23-1.jpg" class="imgkpi imgopt"/>
-					<div>
-						<canvas id="chartkpi23-1" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #23 : Existe t-il une corrélation entre la température moyenne et l'utilisation des stations ?</span>
+						<img src="images/kpi/23-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi23-1" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							D'après ce graphique, il n'y a pas de corrélation entre la température et l'utilisation des vélos. 
+							Cependant, les données météo étant peu fiables, cette observation est à prendre avec précaution car elle reste éloignée de la réalité.
+						</span>
 					</div>
-					<span class="kpiText">
-						D'après ce graphique, il n'y a pas de corrélation entre la température et l'utilisation des vélos. 
-						Cependant, les données météo étant peu fiables, cette observation est à prendre avec précaution car elle reste éloignée de la réalité.
-					</span>
-				</div>
-				<div class="col-xs-10 offset-xs-1 card title">
-					<span>KPI #24 : Y a-t-il un lien entre l'humidité dans l'agglomération et le nombre d'utilisations ?</span>
-					<img src="images/kpi/24-1.jpg" class="imgkpi imgopt"/>
-					<div>
-						<canvas id="chartkpi24-1" width="400" height="100"></canvas>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #24 : Y a-t-il un lien entre l'humidité dans l'agglomération et le nombre d'utilisations ?</span>
+						<img src="images/kpi/24-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi24-1" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							On peut observer qu'il y a une très légère corrélation entre l'humidité et l'utilisation des vélos. 
+							Moins l'atmosphère est humide, plus les vélos sont utilisés. 
+							Cependant, ce lien de causalité reste très léger, et les données météo étant peu fiables, cette observation est à prendre avec précaution car elle reste éloignée de la réalité.
+						</span>
 					</div>
-					<span class="kpiText">
-						On peut observer qu'il y a une très légère corrélation entre l'humidité et l'utilisation des vélos. 
-						Moins l'atmosphère est humide, plus les vélos sont utilisés. 
-						Cependant, ce lien de causalité reste très léger, et les données météo étant peu fiables, cette observation est à prendre avec précaution car elle reste éloignée de la réalité.
-					</span>
 				</div>
+				
+				<span class="col-xs-10 card title spanCat" data-toggle="collapse" data-target="#uReseau">Gestion du réseau</span>
+				<div class="clearfix"></div>
+				<div id="uReseau">
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #01 : Quelles stations ont le plus grand nombre d'utilisations au cours d'une journée ?</span>
+						<img src="images/kpi/1-1.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi01-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi01-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Les stations au taux d'occupation le plus élevé ont tendance à être plutôt en périphérie. 
+							Les arrondissements ayant un fort taux d'occupation ont tendance à être ceux ayant le plus de stations, 
+							avec de faibles disparités entres elles dans leur occupation.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #02 : Quelles stations sont les moins utilisées pendant une journée ?</span>
+						<img src="images/kpi/2-1.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi02-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi02-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Les stations les plus au centre (proches de l'hôtel de ville) ont un taux d'occupation moindre. 
+							Les arrondissements au taux d'occupation faible contiennent assez peu de stations avec des disparités plutôt fortes.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #03 : Quel est le nombre de stations apparaissant sans vélo à au moins un moment de la journée ?</span>
+						<img src="images/kpi/3-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi03-1" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Selon le jour, entre 45% et 65% des stations se retrouvent sans vélo à un moment ou un autre de la journée. 
+							On a retrouvé des variations importantes selon le jour, avec moins de stations vides le vendredi et le dimanche.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #04 : Combien de stations sont au moins une fois pleine dans une journée ?</span>
+						<img src="images/kpi/4-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi04-1" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Selon le jour, entre 55% et 70% des stations se retrouvent sans place libre à un moment ou un autre, 
+							elles sont donc plus souvent pleines que vides. Ce chiffre est relativement homogène selon le jour.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #11 : Quelles stations sont le plus souvent vides ?</span>
+						<img src="images/kpi/11-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi11" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ce graphique montre les stations les plus souvent vides. On remarque encore que Pêcherie l'est à 100 % à cause de sa fermeture. 
+							On observe qu'il y a beaucoup de stations du 4ème arrondissement dans ce graphique, car celui-ci est un des moins utilisés.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #12 : Quelles sont les stations qui sont le plus souvent pleines ?</span>
+						<img src="images/kpi/12-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi12" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							 Ce graphique montre les stations les plus souvent pleines. 
+							 On remarque que ce sont des stations du 9ème et de Villeurbanne qui ressortent le plus ce qui les met bien en relation avec les arrondissements les plus utilisés.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #21 : Combien de temps en moyenne une station vide reste vide ?</span>
+						<img src="images/kpi/21-1.jpg" class="imgkpi imgopt"/>
+						<img src="images/kpi/21-2.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi21-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi21-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							On peut observer que, mise a part quelques stations marginales, une station reste vide moins de 30 heures.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #22 : Quelle est la durée moyenne durant laquelle une station reste pleine ?</span>
+						<img src="images/kpi/22-1.jpg" class="imgkpi imgopt"/>
+						<img src="images/kpi/22-2.jpg" class="imgkpi imgopt"/>
+						<div class="divKpi50">
+							<canvas id="chartkpi22-1" width="400" height="100"></canvas>
+						</div><!--
+						--><div class="divKpi50">
+							<canvas id="chartkpi22-2" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							On peut observer que, mise a part quelques stations marginales, une station reste pleine moins de 20 heures.
+						</span>
+					</div>
+				</div>
+				
+				<span class="col-xs-10 card title spanCat" data-toggle="collapse" data-target="#degradation">Dégradation</span>
+				<div class="clearfix"></div>
+				<div id="degradation">
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #09 : Combien d'emplacements sont en panne le long de la semaine ?</span>
+						<img src="images/kpi/9-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi09" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ce graphique permet de visualiser le nombre de vélos/portiques en panne durant la semaine. 
+							On retrouve alors des données entre le 3 Octobre et le 21 Octobre. On observe un nombre de vélos en panne assez régulier aux alentours de 65 vélos en moyenne.
+							Cependant, on peut apercevoir une hausse importante le 11 Octobre, ainsi que moins de vélos en panne le dimanche 9 Octobre.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #10 : Quelles stations ont le plus grand nombre de vélos en panne dans une semaine ?</span>
+						<img src="images/kpi/10-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi10" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							Ce graphique montre les stations qui ont le plus grand nombre de vélos en panne dans une semaine. 
+							On remarque que la station Pêcherie est bien au dessus des autres car elle est fermée. 
+							On constate aussi que la station Gambetta admet en moyenne 1.4 vélo en panne de plus que les autres stations.
+						</span>
+					</div>
+				</div>
+				
+				<span class="col-xs-10 card title spanCat" data-toggle="collapse" data-target="#proximite">Proximité des stations</span>
+				<div class="clearfix"></div>
+				<div id="proximite">
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #19 : Les stations voisines (moins de 200 mètres) ont-elles une activité similaire ?</span>
+						<img src="images/kpi/19-1.jpg" class="imgkpi"/>
+						<span class="kpiText">Cas des 5 stations les plus actives</span>
+						<img src="images/kpi/19-2.jpg" class="imgkpi"/>
+						<span class="kpiText">Cas des 5 stations les moins actives</span>
+						<span class="kpiText">
+							On peut observer sur la capture présentant les 5 stations les moins actives que leurs voisines ont également une activité faible (	&lt;20%).
+							De même, les 5 stations les plus actives ont des voisines d'activité similaire.
+							Si l'on répète cette opération en sélectionnant des stations dans la liste, on se rendra compte que l'activité des voisines reflète l'activité des stations.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #20 : Existe t-il des stations très actives dont les stations voisines (à moins de 200 mètres) sont peu utilisées ?</span>
+						<img src="images/kpi/20-1.jpg" class="imgkpi"/>
+						<span class="kpiText">
+							Cette capture d'écran propose un aperçu de l'activité de toutes les stations. 
+							On peut voir l'allure générale du graphique, à droite, qui montre un échantillon de valeur presque continu. 
+							Ainsi, si l'on sélectionne une des stations les plus actives (premières dans la liste à gauche), on pourra observer le graphique de l'activité de ses voisines. 
+							On remarque ainsi que les stations les plus actives ont également des voisines très actives.
+						</span>
+					</div>
+				</div>
+				
+				<span class="col-xs-10 card title spanCat" data-toggle="collapse" data-target="#arrond">Statistiques sur les arrondissements</span>
+				<div class="clearfix"></div>
+				<div id="arrond">
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #15 : Combien y a-t-il de stations par habitant ? (avec échantillon par arrondissement)</span>
+						<img src="images/kpi/15-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi15" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							 On voit ici que le 3ème est l'arrondissement privilégié par JCDecaux pour l'implémentation des stations.
+							 Aussi, on peut apercevoir que Caluire-et-Cuire et Vaulx-en-Velin possèdent peu de stations au regard de leur population.
+						</span>
+					</div>
+					<div class="col-xs-10 offset-xs-1 card title">
+						<span>KPI #16 : Quel est le nombre de vélos disponibles par habitant selon l'arrondissement ?</span>
+						<img src="images/kpi/16-1.jpg" class="imgkpi imgopt"/>
+						<div>
+							<canvas id="chartkpi16" width="400" height="100"></canvas>
+						</div>
+						<span class="kpiText">
+							 Le 3ème arrondissement est aussi privilégié en nombre de vélos disponible par habitant. 
+							 On peut apercevois que le 1er, le 4ème et le 5ème ont moins de vélos par station en moyenne que les autres arrondissements, à contrario du 7ème. 
+							 Le nombre de vélos restent faible par habitant, mais reste logique en considérant l'utilisation de ce service.
+						</span>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			</div>
 		</div><!--
 		--><div id="infos">
