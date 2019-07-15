@@ -13,7 +13,8 @@ var arrondValues = {
 	a9: [],
 	a10: [],
 	a11: [],
-	a12: []
+    a12: [],
+    a20: []
 };
 
 
@@ -192,6 +193,18 @@ var arrondissements = [
             [45.74435, 4.9328]
         ]
     },
+    {
+        name: "Oullins",
+        geoPoints: [
+            [45.71809, 4.82077],
+            [45.71186, 4.82755],
+            [45.70694, 4.83991],
+            [45.70342, 4.80521],
+            [45.71954, 4.77836],
+            [45.72440, 4.78066],
+            [45.72441, 4.80849]
+        ]
+    }
 ];
 
 var nbStations = 0;
@@ -401,7 +414,8 @@ function getArrondName(numStation){
 		9: "Lyon - 9 ème",
 		11: "Caluire-et-Cuire",
 		4: "Lyon - 4 ème",
-		12: "Vaulx-en-Velin Sud"
+        12: "Vaulx-en-Velin Sud",
+        20: 'Oullins'
 	};
 	
 	return arrCorrespond[Math.floor(numStation/1000)];
@@ -424,7 +438,8 @@ function renderArrondissement(name){
 		"Lyon - 9 ème": 9,
 		"Caluire-et-Cuire": 11,
 		"Lyon - 4 ème": 4,
-		"Vaulx-en-Velin Sud": 12
+        "Vaulx-en-Velin Sud": 12,
+        "Oullins": 20
 	};
 	
 	
