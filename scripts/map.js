@@ -2,6 +2,7 @@ var map = L.map('map').setView([45.759723, 4.842223], 13);
 var markers = [];
 var arrondissementPolygons = [];
 var arrondValues = {
+    a0: [],
 	a1: [],
 	a2: [],
 	a3: [],
@@ -14,6 +15,7 @@ var arrondValues = {
 	a10: [],
 	a11: [],
     a12: [],
+    a17: [],
     a20: []
 };
 
@@ -38,7 +40,7 @@ var arrondissements = [
             [45.77241, 4.85876],
             [45.787, 4.85997],
             [45.79504, 4.87901],
-            [45.78343, 4.90759],
+            [45.780421, 4.904538],
             [45.77104, 4.90605],
             [45.768763, 4.91729],
             [45.74846, 4.91772]
@@ -204,6 +206,29 @@ var arrondissements = [
             [45.72440, 4.78066],
             [45.72441, 4.80849]
         ]
+    },
+    {
+        name: "Infrastructure JC Decaux",
+        geoPoints: [
+            [45.780225, 4.904592],
+            [45.780275, 4.905550],
+            [45.780801, 4.905440],
+            [45.780711, 4.904506]
+        ]
+    },
+    {
+        name: "Saint-Fons",
+        geoPoints: [
+            [45.70694, 4.83991],
+            [45.71853, 4.83755],
+            [45.71887, 4.84909],
+            [45.713254, 4.864654],
+            [45.700139, 4.866496],
+            [45.700551, 4.856516],
+            [45.688262, 4.861502],
+            [45.680529, 4.845262],
+            [45.686657, 4.836518]
+        ]
     }
 ];
 
@@ -221,6 +246,9 @@ var nbStationsBonus = 0;
 function parseVelovData(velovData){
 
     velovData.forEach(function(value){
+        if(value.number === 0) {
+
+        }
 		nbStations = velovData.length;
         nbVelos += value.available_bikes;
         nbEmplacements += value.available_bike_stands;
@@ -395,8 +423,10 @@ function getLocation() {
 					markerSelected = value;
 				}
 			});
-			
-			markerSelected.openPopup();
+            
+            if(markerSelected != null) {
+                markerSelected.openPopup();
+            }
         });
     }
 }
@@ -415,7 +445,9 @@ function getArrondName(numStation){
 		11: "Caluire-et-Cuire",
 		4: "Lyon - 4 ème",
         12: "Vaulx-en-Velin Sud",
-        20: 'Oullins'
+        20: "Oullins",
+        17: "Saint-Fons",
+        0: "Infrastructure JC Decaux"
 	};
 	
 	return arrCorrespond[Math.floor(numStation/1000)];
@@ -439,7 +471,9 @@ function renderArrondissement(name){
 		"Caluire-et-Cuire": 11,
 		"Lyon - 4 ème": 4,
         "Vaulx-en-Velin Sud": 12,
-        "Oullins": 20
+        "Oullins": 20,
+        "Saint-Fons": 17,
+        "Infrastructure JC Decaux": 0
 	};
 	
 	
