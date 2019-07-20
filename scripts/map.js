@@ -336,7 +336,9 @@ function parseVelovData(velovData){
 
 
         markers.push(currentMarker);
-		arrondValues["a"+((value.number>9999)?String(value.number).substring(0, 2):String(value.number).substring(0, 1))].push(value);        
+        var arrondNumber = (value.number > 9999) ? String(value.number).substring(0, 2) : 
+            ((value.number > 999) ? String(value.number).substring(0, 1) : '0');
+		arrondValues["a"+arrondNumber].push(value);
     });
 	
 
