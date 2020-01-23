@@ -141,7 +141,6 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 
 .imgInfos {
 	width: 20%;
-	height: 13.33vw;
 	display: inline-block;
 }
 

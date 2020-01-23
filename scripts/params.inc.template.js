@@ -1,0 +1,3 @@
+const KEYS = {
+  JCDECAUX: 'YOUR JCDECAUX API KEY'
+};
