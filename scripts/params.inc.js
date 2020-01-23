@@ -1,0 +1,3 @@
+const KEYS = {
+  JCDECAUX: '4a5a2bd5d41860eb9088114a81b74d7d572963d8'
+};
