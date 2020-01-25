@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Velo'v</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 		<link rel="icon" type="image/gif" href="images/logo.gif" />
 
 		<link rel="stylesheet" href="lib/mdb/css/bootstrap.min.css"/>
@@ -35,11 +37,9 @@
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						<li class="nav-item">
-							<form class="form-inline" onSubmit="return validateLocationSearch();">
+							<form class="form-inline" onSubmit="return UTILS.validateLocationSearch();">
 								<input id="location" list="stations" class="form-control" type="text" placeholder="Rechercher"/>
-								<datalist id="stations">
-								
-								</datalist>
+								<datalist id="stations"></datalist>
 							</form>
 						</li>
 						<li class="nav-item">

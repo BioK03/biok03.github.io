@@ -48,14 +48,23 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 }
 
 .spanBike {
-    white-space: nowrap;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-flow: wrap;
     text-align: center;
 }
 
 .spanBike img {
-    width: 2em;
-    display: initial;
+    width: 24px;
+    height: 18px;
+}
+
+.spanBikeIndiator {
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 
 .leaflet-popup-content a {
@@ -123,13 +132,13 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 }
 
 /* LEAFLET */
-/*
-.leaflet-bar a:last-child {
-    border-radius: 0;
-    border-bottom: 1px solid #ccc;
-}*/
 .leaflet-marker-icon {
     border-radius: 2px !important;
+}
+
+.leaflet-popup-content {
+    width: 500px !important;
+    max-width: 95vw;
 }
 
 .stationBikeImg {
@@ -151,10 +160,6 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 .popupContentLeaflet {
 	display: block;
 	font-size: 1.5em;
-}
-
-.leaflet-popup-content {
-	min-width: 500px !important;
 }
 
 .popupContentLeaflet img {
