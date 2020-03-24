@@ -1,12 +1,11 @@
 const TEMPLATES = {
     STATION_POPUP: station => {
+        let bikes = '';
 
-        var bikes = '';
-
-        for(var i = 0; i < station.available_bikes; i++) {
+        for(let i = 0; i < station.available_bikes; i++) {
             bikes += `<img src='images/velov-busy.png'/>`;
         }
-        for(var i = 0; i < station.available_bike_stands; i++) {
+        for(let i = 0; i < station.available_bike_stands; i++) {
             bikes += `<img src='images/velov-free.png'/>`;
         }
 
@@ -16,7 +15,7 @@ const TEMPLATES = {
             <span class='spanBike'>
                 ${bikes}
             </span><br/>
-            <span class="spanBikeIndiator">(${station.available_bikes}/${(station.available_bike_stands + station.available_bikes)})<span><br/>
+            <span class="spanBikeIndicator">(${station.available_bikes}/${(station.available_bike_stands + station.available_bikes)})<span><br/>
             <a href='#' onclick='UTILS.getArrondStats(${station.number})'>Statistiques du quartier '${UTILS.getArrondByCode(Math.floor(station.number / 1000)).name}'</a>
         </div>`;
     },
@@ -331,6 +330,23 @@ const ARRONDISSEMENTS = [
         polygon: null
     },
     {
+        code: 13,
+        name: 'Décines-Charpieu',
+        geoPoints: [
+            [45.809268, 4.966834],
+            [45.77159, 4.93546],
+            [45.76207, 4.93744],
+            [45.74435, 4.9328],
+            [45.754003, 4.985542],
+            [45.784178, 4.983998],
+            [45.774361, 4.948807],
+            [45.783932, 4.975243],
+            [45.805842, 4.979534]
+        ],
+        stations: [],
+        polygon: null
+    },
+    {
         code: 14,
         name: 'Bron',
         geoPoints: [
@@ -621,6 +637,20 @@ const ARRONDISSEMENTS = [
         polygon: null
     },
     {
+        code: 32,
+        name: 'Couzon-au-Mont-d\'Or',
+        geoPoints: [
+            [45.856490, 4.818441],
+            [45.853830, 4.836379],
+            [45.839624, 4.831960],
+            [45.843335, 4.806340],
+            [45.849639, 4.806425],
+            [45.855139, 4.812819]
+        ],
+        stations: [],
+        polygon: null
+    },
+    {
         code: 33,
         name: 'Albigny-sur-Saône',
         geoPoints: [
@@ -814,7 +844,7 @@ const parseVelovData = velovData => {
 				color: '#E11F26',
 				weight: 4,
 				fillColor: '#E11F26',
-				fillOpacity: 0.1,
+				fillOpacity: 0.05,
 				dashArray: '5, 5'
 			})
 			.bindPopup(TEMPLATES.ARRONDISSEMENT_POPUP(arr))

@@ -23,7 +23,18 @@ a:focus, a:hover {
     color: #E11F26;
 }
 
-input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=url]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
+input[type=date]:focus:not([readonly]), 
+input[type=datetime-local]:focus:not([readonly]), 
+input[type=email]:focus:not([readonly]), 
+input[type=number]:focus:not([readonly]), 
+input[type=password]:focus:not([readonly]), 
+input[type=search-md]:focus:not([readonly]), 
+input[type=search]:focus:not([readonly]), 
+input[type=tel]:focus:not([readonly]), 
+input[type=text]:focus:not([readonly]), 
+input[type=time]:focus:not([readonly]), 
+input[type=url]:focus:not([readonly]), 
+textarea.md-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #E11F26;
     box-shadow: 0 1px 0 0 #E11F26;
 }
@@ -61,7 +72,7 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
     height: 18px;
 }
 
-.spanBikeIndiator {
+.spanBikeIndicator {
     width: 100%;
     text-align: center;
     display: block;
@@ -182,11 +193,7 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 }
 
 .leaflet-marker-icon {
-    -webkit-transition: 0.3s ease;
-        -moz-transition: 0.3s ease;
-         -ms-transition: 0.3s ease;
-          -o-transition: 0.3s ease;
-             transition: 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .leaflet-marker-icon:hover {
@@ -198,11 +205,7 @@ input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([re
 
 
 g * {
-	-webkit-transition: 0.3s ease;
-        -moz-transition: 0.3s ease;
-         -ms-transition: 0.3s ease;
-          -o-transition: 0.3s ease;
-             transition: 0.3s ease;
+    transition: 0.3s ease;
 }
 
 g:hover * {
