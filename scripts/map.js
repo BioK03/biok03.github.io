@@ -682,8 +682,8 @@ const ARRONDISSEMENTS = [
 
 const map = L.map('map').setView([45.759723, 4.842223], 12);
 
-L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-	attribution: 'OpenData by <a href="https://developer.jcdecaux.com/#/home" target="_blank">JCDecaux</a>.Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	attribution: 'OpenData by <a href="https://developer.jcdecaux.com/#/home" target="_blank">JCDecaux</a>.Tiles courtesy of <a href="http://openstreetmap.org/" target="_blank">OpenStreetMap</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 let markers = [];

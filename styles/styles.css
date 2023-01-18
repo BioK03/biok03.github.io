@@ -144,7 +144,7 @@ textarea.md-textarea:focus:not([readonly]) {
 
 /* LEAFLET */
 .leaflet-marker-icon {
-    border-radius: 2px !important;
+    border-radius: 15px !important;
 }
 
 .leaflet-popup-content {
@@ -197,10 +197,11 @@ textarea.md-textarea:focus:not([readonly]) {
 }
 
 .leaflet-marker-icon:hover {
-	margin-left: -15px !important;
-	margin-top: -15px !important;
-	width: 30px !important;
-	height: 30px !important;
+    border-radius: 10px;
+	margin-left: -10px !important;
+	margin-top: -10px !important;
+	width: 20px !important;
+	height: 20px !important;
 }
 
 
@@ -214,10 +215,11 @@ g:hover * {
 
 @media screen and (max-width: 1250px){
 	.leaflet-marker-icon {
-		margin-left: -15px !important;
-		margin-top: -15px !important;
-		width: 30px !important;
-		height: 30px !important;
+        border-radius: 10px;
+		margin-left: -10px !important;
+		margin-top: -10px !important;
+		width: 20px !important;
+		height: 20px !important;
 	}
 	
 	.navbar {
